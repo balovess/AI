@@ -1,18 +1,17 @@
 import polars as pl
 
-class PolarsMemory:
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.df = pl.DataFrame()
+class PolarsStorage:
+    def init(self):
+        self.df = pl.DataFrame({'question': [], 'answer': []})
 
-    def load(self):
-        self.df = pl.read_csv(self.file_path)
+    def add_row(self, question, answer):
+        self.df = self.df.with_columns([
+            pl.Series('question', [question]),
+            pl.Series('answer', [answer])
+        ])
 
-    def save(self):
-        self.df.to_csv(self.file_path)
+    def get_all_rows(self):
+        return self.df.to_arrow()
 
-    def append(self, row_dict):
-        self.df = self.df.append(pl.Series(row_dict))
-
-    def query(self, query_str):
-        return self.df.lazy().filter(query_str).collect()
+    def delete_all_rows(self):
+        self.df = pl.DataFrame({'question': [], 'answer': []})

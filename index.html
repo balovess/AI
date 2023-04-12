@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>AI 聊天机器人</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="chat-container">
-    <div class="chat-header">
-      <h2>AI 聊天机器人</h2>
-    </div>
-    <div class="chat-body">
-      <div class="chat-message ai-message">
-        <p>你好，我是一个 AI，很高兴为您服务。</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="chat-box">
+        <div class="chat-header">
+          <h3>Chat Room</h3>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+          <!-- 用户聊天消息将在这里显示 -->
+          <!-- AI聊天消息将在这里显示 -->
+        </div>
+        <div class="chat-input">
+          <form id="chat-form">
+            <textarea id="chat-input-field" placeholder="Type your message here..."></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
       </div>
     </div>
-    <div class="chat-footer">
-      <form id="message-form">
-        <input type="text" placeholder="输入消息...">
-        <button type="submit">发送</button>
-      </form>
-    </div>
-    <script src="scripts/script.js"></script>
-  </div>
-</body>
+    <script src="js/script.js"></script>
+  </body>
 </html>
